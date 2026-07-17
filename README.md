@@ -2,7 +2,8 @@
 
 A single-page personal portfolio with a Y2K aesthetic and a Formula 1 obsession baked into every corner — chrome gradients, scanlines, checkered borders, and a scroll experience animated with GSAP.
 
-**Live site:** https://ahlamcode2150.github.io/ahlam-fatima-portfolio/
+**Live site:** https://ahlam-fatima-portfolio.netlify.app
+(also mirrored via GitHub Pages: https://ahlamcode2150.github.io/ahlam-fatima-portfolio/)
 
 ## Sections
 
