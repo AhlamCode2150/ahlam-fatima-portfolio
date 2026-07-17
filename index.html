@@ -36,6 +36,30 @@
   @keyframes af-flash{0%{opacity:.92}100%{opacity:0}}
   @keyframes af-scan{0%{transform:translateY(0)}100%{transform:translateY(6px)}}
   .bebas-neue-regular{font-family:"Bebas Neue",sans-serif;font-weight:400;font-style:normal}
+
+  /* ===== mobile responsiveness ===== */
+  .af-nav{max-width:94vw}
+  .af-nav a{white-space:nowrap}
+  img{max-width:100%;height:auto}
+  @media (max-width:600px){
+    .af-about-grid{grid-template-columns:1fr!important;text-align:center}
+    .af-about-photo{max-width:210px;width:100%;margin:0 auto}
+  }
+  @media (max-width:600px){
+    .af-orb{top:-20px!important;right:-14px!important;width:60px!important;height:60px!important}
+  }
+  @media (max-width:480px){
+    .af-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;justify-content:flex-start;scrollbar-width:none}
+    .af-nav::-webkit-scrollbar{display:none}
+    .af-nav a{font-size:10px!important;padding:6px 9px!important}
+    h1.bebas-neue-regular{font-size:clamp(46px,16vw,168px)!important}
+    .af-badge{font-size:10px!important;letter-spacing:.14em!important;padding:6px 11px!important;gap:6px!important}
+  }
+  @media (max-width:380px){
+    section{padding-left:14px!important;padding-right:14px!important}
+    .af-cal-row{grid-template-columns:40px 1fr auto!important;gap:10px!important;padding-left:12px!important;padding-right:12px!important}
+    .af-cal-round{font-size:20px!important}
+  }
 </style>
 </helmet>
 
@@ -55,7 +79,7 @@
 <div style="position:relative;z-index:2">
 
 <!-- NAV -->
-<div style="position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:40;display:flex;gap:4px;padding:5px;border-radius:999px;background:rgba(10,15,42,.72);backdrop-filter:blur(12px);border:1px solid rgba(160,180,255,.28);box-shadow:0 6px 26px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18)">
+<div class="af-nav" style="position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:40;display:flex;gap:4px;padding:5px;border-radius:999px;background:rgba(10,15,42,.72);backdrop-filter:blur(12px);border:1px solid rgba(160,180,255,.28);box-shadow:0 6px 26px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18)">
   <a href="#about" style="text-decoration:none;font-size:11px;letter-spacing:.05em;padding:7px 12px;border-radius:999px;color:#cdd6ef">about</a>
   <a href="#cares" style="text-decoration:none;font-size:11px;letter-spacing:.05em;padding:7px 12px;border-radius:999px;color:#cdd6ef">cares</a>
   <a href="#memes" style="text-decoration:none;font-size:11px;letter-spacing:.05em;padding:7px 12px;border-radius:999px;color:#cdd6ef">memes</a>
@@ -66,12 +90,12 @@
 <!-- ===== HERO / FRONT COVER ===== -->
 <section data-screen-label="Hero" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 22px 40px;text-align:center;position:relative;perspective:1100px">
   <div ref="{{ setHeroInner }}" style="transform-style:preserve-3d;transition:transform .15s ease-out;max-width:960px;width:100%">
-    <div style="display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#9fb0e6;border:1px solid rgba(160,180,255,.3);padding:7px 14px;border-radius:999px;background:rgba(10,15,42,.4)">
+    <div class="af-badge" style="display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#9fb0e6;border:1px solid rgba(160,180,255,.3);padding:7px 14px;border-radius:999px;background:rgba(10,15,42,.4)">
       <span style="width:7px;height:7px;border-radius:50%;background:#3f68ff;box-shadow:0 0 10px #3f68ff;animation:af-blink 1.6s infinite"></span>offline but still watching.
     </div>
 
     <div style="position:relative;margin:26px auto 0;display:inline-block">
-      <div style="position:absolute;top:-58px;right:-30px;width:88px;height:88px;border-radius:50%;background-image:linear-gradient(rgba(255,255,255,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.13) 1px,transparent 1px),radial-gradient(circle at 32% 28%,#ffffff,#aeb9d8 36%,#6f7aa0 72%,#39425f 100%);background-size:11px 11px,11px 11px,100% 100%;box-shadow:0 0 34px rgba(47,91,255,.5),inset -8px -10px 22px rgba(0,0,0,.45);animation:af-spin 9s linear infinite;animation-timing-function:linear"></div>
+      <div class="af-orb" style="position:absolute;top:-58px;right:-30px;width:88px;height:88px;border-radius:50%;background-image:linear-gradient(rgba(255,255,255,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.13) 1px,transparent 1px),radial-gradient(circle at 32% 28%,#ffffff,#aeb9d8 36%,#6f7aa0 72%,#39425f 100%);background-size:11px 11px,11px 11px,100% 100%;box-shadow:0 0 34px rgba(47,91,255,.5),inset -8px -10px 22px rgba(0,0,0,.45);animation:af-spin 9s linear infinite;animation-timing-function:linear"></div>
       <h1 class="bebas-neue-regular" style="margin:0;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(58px,13vw,168px);line-height:.86;letter-spacing:.01em;background:linear-gradient(180deg,#ffffff 0%,#d3dcf1 30%,#8791b1 52%,#f4f6ff 66%,#9aa4c4 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:.6px rgba(255,255,255,.22);filter:drop-shadow(0 6px 24px rgba(47,91,255,.35));animation:af-shimmer 6s linear infinite alternate">AHLAM<br>FATIMA</h1>
     </div>
 
@@ -91,9 +115,9 @@
     <div style="text-align:center">
       <div style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#7e8cbf">// about_me.txt</div>
     </div>
-    <div style="display:grid;grid-template-columns:280px 1fr;gap:26px;align-items:center">
+    <div class="af-about-grid" style="display:grid;grid-template-columns:280px 1fr;gap:26px;align-items:center">
       <!-- webcam-framed photo -->
-      <div data-reveal style="position:relative;border-radius:14px;padding:10px;background:linear-gradient(150deg,#e7ecfb,#8b96bc);box-shadow:0 18px 44px rgba(0,0,0,.5)">
+      <div class="af-about-photo" data-reveal style="position:relative;border-radius:14px;padding:10px;background:linear-gradient(150deg,#e7ecfb,#8b96bc);box-shadow:0 18px 44px rgba(0,0,0,.5)">
         <div style="border-radius:8px;overflow:hidden;background:#0a0e26;position:relative">
           <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 9px;background:#0a0e26;font-size:9px;letter-spacing:.12em;color:#9fb0e6"><span style="display:inline-flex;align-items:center;gap:5px"><span style="width:6px;height:6px;border-radius:50%;background:#ff4d6d;animation:af-blink 1.4s infinite"></span>REC · cam01</span><span>4:3</span></div>
           <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#141a3a 0 12px,#171e42 12px 24px);display:flex;align-items:center;justify-content:center;color:#5f6dda;position:relative">
@@ -249,8 +273,8 @@
   <div data-reveal style="border-radius:16px;overflow:hidden;border:1px solid rgba(160,180,255,.18);background:linear-gradient(165deg,rgba(19,26,60,.95),rgba(10,15,42,.95));box-shadow:0 18px 44px rgba(0,0,0,.5)">
     <div style="height:10px;background:repeating-linear-gradient(90deg,#0a0f2e 0 12px,#dfe6f6 12px 24px);opacity:.55"></div>
     <sc-for list="{{ races }}" as="r" hint-placeholder-count="6">
-      <div style="display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:14px;padding:15px 18px;border-bottom:1px solid rgba(160,180,255,.09);background:{{ r.bg }}">
-        <div style="font-family:'Anton',sans-serif;font-size:26px;color:{{ r.numColor }};line-height:1">{{ r.round }}</div>
+      <div class="af-cal-row" style="display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:14px;padding:15px 18px;border-bottom:1px solid rgba(160,180,255,.09);background:{{ r.bg }}">
+        <div class="af-cal-round" style="font-family:'Anton',sans-serif;font-size:26px;color:{{ r.numColor }};line-height:1">{{ r.round }}</div>
         <div>
           <div style="font-size:14px;font-weight:700;color:#fff">{{ r.gp }}</div>
           <div style="font-size:11px;color:#8b97c4;letter-spacing:.05em">{{ r.circuit }}</div>
@@ -271,7 +295,7 @@
 <footer data-screen-label="Footer" style="text-align:center;padding:40px 22px 70px;position:relative">
   <div style="height:16px;margin-bottom:26px;background:repeating-conic-gradient(#dfe6f6 0% 25%,#0a0f2e 0% 50%) 0 / 22px 22px;opacity:.55"></div>
   <p style="margin:0 auto;max-width:460px;font-size:15px;line-height:1.6;color:#c7d0ec">sundays are for questionable decisions & race starts.</p>
-  <div style="margin-top:20px;display:flex;gap:16px;justify-content:center;align-items:center;font-size:11px;color:#6d7bb0;letter-spacing:.1em">
+  <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:center;align-items:center;font-size:11px;color:#6d7bb0;letter-spacing:.1em">
     <span>© ahlam fatima</span><span>·</span><span>soft launch archive</span><span>·</span>
     <span style="font-family:'Anton',sans-serif;font-size:16px;color:#7fa0ff">33</span>
   </div>
